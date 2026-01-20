@@ -1,8 +1,6 @@
-import os
-from glob import glob
 from setuptools import find_packages, setup
 
-package_name = 'ros2_basic'
+package_name = 'kame_control'
 
 setup(
     name=package_name,
@@ -12,8 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        
-        (os.path.join('share', 'ros2_basic', 'launch'), glob('launch/*.launch.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,11 +24,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-        	'hello_node = ros2_basic.hello_node:main',
-        	'cmd_vel_publisher = ros2_basic.cmd_vel_publisher:main',
-        	'pose_subscriber = ros2_basic.pose_subscriber:main',
-        	'wall_stop_controller = ros2_basic.wall_stop_controller:main',
-        	
+         'cmdvel_odom_node = kame_control.cmdvel_odom_node:main',
+         'nav2_two_goals = kame_control.nav2_two_goals:main',
+         'nav2_kadai = kame_control.nav2_kadai:main',
         ],
     },
 )
